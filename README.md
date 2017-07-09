@@ -1,0 +1,1 @@
+An attempt to build STK instruments as pd objects, based on https://ccrma.stanford.edu/realsimple/stkforpd/
