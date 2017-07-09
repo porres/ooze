@@ -22,7 +22,9 @@ FLEXTLIB=/usr/local/lib/libflext-pd_s.a
 # compiler+linker stuff	### EDIT! ###
 INCLUDES=/usr/lib/pd/include
 FLAGS=-DPD
-CFLAGS=-O3 -march=x86_64
+CFLAGS=-O3 -DPD -DUNIX -DMACOSX -O3 \
+    -Wall -W -Wstrict-prototypes \
+    -Wno-unused -Wno-parentheses -Wno-switch
 LIBS=m
 
 # stk stuff
@@ -35,7 +37,7 @@ STKLIB=/usr/local/lib/libstk.a
 # all the source files from the package
 SRCS=clarinet.cpp
 
-TARGET=$(TARGDIR)/$(NAME)~.pd_linux
+TARGET=$(TARGDIR)/$(NAME)~.pd_darwin
 
 # default target
 all: $(TARGDIR) $(TARGET)
