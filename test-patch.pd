@@ -1,0 +1,21 @@
+#N canvas 160 78 233 288 10;
+#X obj 18 115 clarinet~ 250;
+#X obj 18 250 dac~ 1 2;
+#X obj 19 17 noise~;
+#X floatatom 61 60 5 0 400 0 - - -;
+#X floatatom 104 94 5 150 2000 0 - - -;
+#X text 55 42 Amplitude;
+#X text 104 76 Frequency [Hz];
+#X obj 35 183 hsl 128 15 0 0.2 0 0 empty empty empty -2 -6 0 8 -262144
+-1 -1 3600 1;
+#X obj 19 202 *~;
+#X floatatom 50 203 5 0 0 0 - - -;
+#X text 32 166 Output volume to sound card;
+#X connect 0 0 8 0;
+#X connect 2 0 0 0;
+#X connect 3 0 0 1;
+#X connect 4 0 0 2;
+#X connect 7 0 8 1;
+#X connect 7 0 9 0;
+#X connect 8 0 1 1;
+#X connect 8 0 1 0;
