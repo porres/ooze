@@ -127,7 +127,7 @@ bool clarinet::NewObjs()
 	// set up objects
 	try {
 	  // Either instantiate an instrument or an effect
-	  inst = new clarinet(frequency);	
+	  //inst = new clarinet(frequency);	
 	  inst->noteOn(frequency,0.2);		
 	  //effect=new Echo(44100*3);
 	  //((Echo*)effect)->setDelay(1000);
