@@ -10,17 +10,17 @@
 NAME=clarinet
 
 # where to build
-TARGDIR=./pd-linux
+TARGDIR=./pd-darwin
 
 # where to install	### EDIT! ###
-INSTDIR=/usr/lib/pd/extra
+INSTDIR=/Applications/Pd.app/Contents/Resources/extra/
 
 # flext stuff  ### EDIT! ###
 FLEXTPATH=/usr/local/include/flext
 FLEXTLIB=/usr/local/lib/libflext-pd_s.a
 
 # compiler+linker stuff	### EDIT! ###
-INCLUDES=/usr/lib/pd/include
+INCLUDES=/Applications/Pd.app/Contents/Resources/include/
 FLAGS=-DPD
 CFLAGS=-O3 -DPD -DUNIX -DMACOSX -O3 \
     -Wall -W -Wstrict-prototypes \
