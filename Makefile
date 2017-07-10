@@ -10,7 +10,7 @@
 NAME=clarinet
 
 # where to build
-TARGDIR=./pd-linux
+TARGDIR=./pd-darwin
 
 # where to install	### EDIT! ###
 INSTDIR=/Applications/Pd.app/Contents/Resources/extra/
