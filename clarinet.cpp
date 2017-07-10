@@ -52,9 +52,9 @@ protected:
         // This function must be defined for any flext object that
         // processes signals at the audio rate.
 	virtual void m_signal(int n, float *const *in, float *const *out);
-	Instrmnt *inst;
-	Effect *effect;
-	BiQuad filter;
+	stk::Instrmnt *inst;
+	stk::Effect *effect;
+	stk::BiQuad filter;
 private:
 	float frequency;
 	float volume;
@@ -127,12 +127,12 @@ bool clarinet::NewObjs()
 	// set up objects
 	try {
 	  // Either instantiate an instrument or an effect
-	  inst = new Clarinet(frequency);	
+	  inst = new clarinet(frequency);	
 	  inst->noteOn(frequency,0.2);		
 	  //effect=new Echo(44100*3);
 	  //((Echo*)effect)->setDelay(1000);
 	}
-	catch (StkError &) {
+	catch (stk::StkError &) {
 		post("%s - Clarinet() setup failed!",thisName());
 		ok = false;
 	}
