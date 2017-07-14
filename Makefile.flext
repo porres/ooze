@@ -1,0 +1,28 @@
+## pd-lib-builder based Makefile for Flext externals
+#
+# instead of calling '.../flext/build.sh pd gcc'
+# just do 'make -f .../Makefile.flext'
+ifndef PKGINFO
+PKGINFO=package.txt
+endif
+ifneq ($(PKGINFO),)
+include $(PKGINFO)
+endif
+ifdef BUILDDIR
+-include $(BUILDDIR)/config-lnx.def
+-include $(BUILDDIR)/gnumake-lnx-gcc.inc
+endif
+
+lib.name = $(NAME)
+
+$(NAME).class.sources = $(addprefix $(SRCDIR)/, $(SRCS))
+
+cflags = $(INCPATH) $(DEFS) $(shell pkg-config --cflags pd-flext)
+ldflags = $(shell pkg-config --libs pd-flext)
+
+# This Makefile is based on the Makefile from pd-lib-builder written by
+# Katja Vetter. You can get it from:
+# https://github.com/pure-data/pd-lib-builder
+
+PDLIBBUILDER_DIR=/usr/share/pd-lib-builder/
+include $(firstword $(wildcard $(PDLIBBUILDER_DIR)/Makefile.pdlibbuilder Makefile.pdlibbuilder))
