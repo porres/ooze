@@ -1,71 +1,20 @@
-# idelay~ - interpolating delay using flext layer
-# Copyright (c) 2002 Thomas Grill (xovo@gmx.net)
-#
-# Makefile for gcc 
-#
-# usage: make
-#
-# ---------------------------------------------
+# Makefile for mylib
 
-NAME=clarinet
+lib.name = clarinet
 
-# where to build
-TARGDIR=./pd-darwin
+class.sources = \
+	clarinet.cpp \
+	
+common.sources = /usr/local/include/flext
 
-# where to install	### EDIT! ###
-INSTDIR=/Applications/Pd.app/Contents/Resources/extra/
+datafiles = README.md
+
+include pd-lib-builder/Makefile.pdlibbuilder
 
 # flext stuff  ### EDIT! ###
-FLEXTPATH=/usr/local/include/flext
-FLEXTLIB=/usr/local/lib/libflext-pd_s.a
-
-# compiler+linker stuff	### EDIT! ###
-INCLUDES=/Applications/Pd.app/Contents/Resources/include/
-FLAGS=-DPD
-CFLAGS=-O3 -DPD -DUNIX -DMACOSX -O3 \
-    -Wall -W -Wstrict-prototypes \
-    -Wno-unused -Wno-parentheses -Wno-switch
-LIBS=m
+# FLEXTPATH=/usr/local/include/flext
+# FLEXTLIB=/usr/local/lib/libflext-pd_s.a
 
 # stk stuff
-STKPATH=/usr/local/include/stk
-STKLIB=/usr/local/lib/libstk.a
-
-# the rest can stay untouched
-# ----------------------------------------------
-
-# all the source files from the package
-SRCS=clarinet.cpp
-
-TARGET=$(TARGDIR)/$(NAME)~.pd_darwin
-
-# default target
-all: $(TARGDIR) $(TARGET)
-
-$(SRCS): $(HDRS)
-	touch $@
-
-$(TARGDIR):
-	mkdir $(TARGDIR)
-
-$(TARGDIR)/%.o : %.cpp
-	$(CXX) -c $(CFLAGS) $(FLAGS) $(patsubst %,-I%,$(INCLUDES) $(STKPATH) $(FLEXTPATH)) $< -o $@
-
-$(TARGET) : $(patsubst %.cpp,$(TARGDIR)/%.o,$(SRCS)) $(FLEXTLIB) $(STKLIB) 
-	$(CXX) $(LDFLAGS) -shared $^ $(patsubst %,-l%,$(LIBS)) -o $@ 
-	chmod 755 $@
-
-$(INSTDIR):
-	mkdir $(INSTDIR)
-
-install:: $(INSTDIR)
-
-install:: $(TARGET)  
-	cp $^ $(INSTDIR)
-	chown root.root $(patsubst %,$(INSTDIR)/%,$(notdir $^))
-
-.PHONY: clean
-clean:
-	rm -f $(TARGDIR)/*.o $(TARGET)
-
-
+# STKPATH=/usr/local/include/stk
+# STKLIB=/usr/local/lib/libstk.a
