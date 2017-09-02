@@ -4,8 +4,6 @@ lib.name = clarinet
 
 class.sources = \
 	clarinet.cpp \
-	
-common.sources = /usr/local/include/flext
 
 datafiles = README.md
 
