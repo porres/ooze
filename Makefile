@@ -9,6 +9,11 @@ common.sources = /usr/local/include/flext
 
 datafiles = README.md
 
+FLEXTPATH=/usr/local/include/flext # include flext header files
+STKPATH=/usr/local/include/stk # include stk header files
+cflags += -I"$(FLEXTPATH)" -I"$(STKPATH)"
+ldlibs = -lflext
+
 include pd-lib-builder/Makefile.pdlibbuilder
 
 # flext stuff  ### EDIT! ###
