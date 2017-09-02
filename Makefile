@@ -5,6 +5,8 @@ lib.name = clarinet
 class.sources = \
 	clarinet.cpp \
 
+# build for 64 bit only
+arch := x86_64
 datafiles = README.md
 
 FLEXTPATH=/usr/local/include/flext # include flext header files
