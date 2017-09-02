@@ -29,3 +29,7 @@ cflags += -I"$(FLEXTPATH)" -I"$(STKPATH)"
 
 include pd-lib-builder/Makefile.pdlibbuilder
 
+# PDINCLUDEDIR:
+# Directory where Pd API m_pd.h should be found, and other Pd header files.
+# Overrides the default search path.
+PDINCLUDEDIR =/Applications/Pd.app/Contents/Resources/include
