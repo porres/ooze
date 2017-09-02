@@ -22,6 +22,10 @@ FLEXTPATH=/usr/local/include/flext
 STKPATH=/usr/local/include/stk
 # add include paths to cflags
 cflags += -I"$(FLEXTPATH)" -I"$(STKPATH)"
+# link to libs
+# FLEXTLIB=/usr/local/lib/libflext-pd_s.a
+# STKLIB=/usr/local/lib/libstk.a
+# ldlibs = -lflext
 
 include pd-lib-builder/Makefile.pdlibbuilder
 
