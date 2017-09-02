@@ -16,20 +16,12 @@ arch := x86_64
 # add extra files
 datafiles = README.md
 
-FLEXTPATH=/usr/local/include/flext # include flext header files
-STKPATH=/usr/local/include/stk # include stk header files
 # include stk header files
+FLEXTPATH=/usr/local/include/flext
 # include stk header files
+STKPATH=/usr/local/include/stk
 # add include paths to cflags
 cflags += -I"$(FLEXTPATH)" -I"$(STKPATH)"
-ldlibs = -lflext
 
 include pd-lib-builder/Makefile.pdlibbuilder
 
-# flext stuff  ### EDIT! ###
-# FLEXTPATH=/usr/local/include/flext
-# FLEXTLIB=/usr/local/lib/libflext-pd_s.a
-
-# stk stuff
-# STKPATH=/usr/local/include/stk
-# STKLIB=/usr/local/lib/libstk.a
